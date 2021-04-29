@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include<time.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main (void)
+{
+  char Maestra[4];
+  int Temp[4];
+  int e, i,j,r, flag1, flag2, flag3, flag4, flag5, flag6, flag7;
+  srand(time(NULL));
+  for(i=0; i<4; i++)
+    {
+      e = rand() % 7;
+      j=i-1;
+      Temp[i]=e;
+      if(i>0)
+	{
+	  for(j=0; j<i; j++)
+	    {
+	      if(Temp[j]==Temp[i])
+		{
+		  Temp[i] = rand() % 7;
+		  j--;
+		}
+	    }
+	}
+      if(e==0 && flag1!=1)
+	{
+	  Maestra[i]= 'a';
+	  flag1=1;
+	}
+      if(e==1 && flag2!=1)
+	{
+	  Maestra[i]= 'b';
+	  flag2=1;
+	}
+      if(e==2 && flag3!=1)
+	{
+	  Maestra[i]= 'r';
+	  flag3=1;
+	}
+      if(e==3 && flag4!=1)
+	{
+	  Maestra[i]= 'v';
+	  flag4=1;
+	}
+      if(e==4 && flag5!=1)
+	{
+	  Maestra[i]= 'm';
+	  flag5=1;
+	}
+      if(e==5 && flag6!=1)
+	{
+	  Maestra[i]= 'g';
+	  flag6=1;
+	}
+      if(e==6 && flag7!=1)
+	{
+	  Maestra[i]= 'n';
+	  flag7=1;
+	}
+    }
+  for(i=0; i<4; i++)
+    printf("%c\n", Maestra[i]);
+}     

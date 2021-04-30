@@ -22,8 +22,8 @@ void Mayus_a_minus(char Nuevo[8]);
 int main(void)
 {
   int i, flag;
-  char Maestra[4], Nuevo[8], Acomulado[100], Nuevo2[4], Temp[4], Salirf[5], Historiaf[8];
-  char Trampaf[6] = "trampa";
+  char Maestra[4], Nuevo[8], Acomulado[100], Nuevo2[4], Temp[4], Salirf[6], Historiaf[9];
+  char Trampaf[7] = "trampa";
   strcpy (Salirf, "salir");
   strcpy (Historiaf, "historia");
   Intro();
@@ -59,12 +59,13 @@ int main(void)
             {
               printf("Cometiste un error al ingresar los datos, por favor vuelve a intentarlo. Esta oportunidad no contará como una errada\n");
               i--;
+	      flag=0;
 	    }
           else
             {
               if(strcmp(Maestra, Nuevo2)==0)
                 {
-                  printf("Ganaste, muchas felicidades Xime y Lorenzo te deben un gansito.\n");
+                  printf("\nGanaste, muchas felicidades Xime y Lorenzo te deben un gansito.\n");
                   i=18;
                 }
 	      else
@@ -76,6 +77,7 @@ int main(void)
                 }
             }
         }
+      
     }
  if(i==16)
    {
@@ -98,13 +100,13 @@ orial de tiros, teclear 'historial'. Mucha suerte");
  
 void Pregunta_comb (char Nuevo[8])
 {
-  printf("Dame una combinación\n");
+  printf("\nDame una combinación\n");
   fgets(Nuevo, 8, stdin);
 }
  
 void cuatro_letras(char Nuevo[8], int *flag)
 {
-  if(strlen(Nuevo)!=4)
+  if(strlen(Nuevo)!=5)
     {
       *flag=1;
     }
@@ -166,9 +168,9 @@ void Comb_no_repetida(char Temp[4], char Acomulado[100], char Nuevo[8], int *fla
 void Nuevo_Nuevo2(char Nuevo[8], char Nuevo2[4])
 {
   int j;
-  for(j=0; j>=3; j++)
+  for(j=0; j<=3; j++)
     {
-      Nuevo[j]=Nuevo2[j];
+      Nuevo2[j]=Nuevo[j];
     }
 }
  
@@ -181,7 +183,11 @@ void Num_aciertos(char Nuevo2[4], char Maestra[4])
 	if(Nuevo2[j]==Maestra[r])
 	   aciertos++;
     }
-  printf("Número de aciertos: %d", aciertos);
+  //for(r=0; r<4; r++)
+  
+    //printf("%c", Nuevo2[r]);
+  
+  printf("\nNúmero de aciertos: %d\n", aciertos);
 }
  
 void Posicion_correcta(char Nuevo2[4], char Maestra[4])
@@ -200,7 +206,7 @@ void Posicion_correcta(char Nuevo2[4], char Maestra[4])
  
 void Op_restantes(int i)
 {
-      printf("\n te quedan %d oportunidades\n ", 16-i);
+      printf("\nTe quedan %d oportunidades\n ", 16-i);
 }
  
 void Concatenar(char Nuevo2[4], char Acomulado[100])
